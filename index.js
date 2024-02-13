@@ -4,9 +4,11 @@ const todos = [];
 
 function addTodo() {
     const inputTodoElement = document.querySelector('#inputTodo');
-    const title = inputTodoElement.value;
-    todos.push({title, completed: false});
-    renderTodos();
+    const title = inputTodoElement.value.trim();
+    if (title) {
+        todos.push({title, completed: false});
+        renderTodos();
+    };
 };
 
 function renderTodos() {
@@ -35,7 +37,3 @@ function toggleTodo(index) {
     todos[index].completed = !todos[index].completed;
     renderTodos();
 };
-
-
-// 3. Check if there is a value
-// 4. If there is a value, create a new task
